@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: https://sprinkler-switch.herokuapp.com/
+HOST: https://sprinkler-switch.herokuapp.com/webapi/
 
 # sprinkler-switch
 
@@ -44,7 +44,7 @@ After posting action, if the order was executed will return code **200** else **
 `set_status` values are `on` or `off` indicating desire to turn sprinkler on or off.<br>
 `seconds` it is an optional argument used only if `set_status` is `on`.  <br>
 value must be positive integer. It indicates for how long sprinkler must stay on <br>
-**default and max value is 60**. <br>
+**default and max value for is `seconds` is 60**. <br>
 
 + Request (application/json)
 

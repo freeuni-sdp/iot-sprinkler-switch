@@ -1,0 +1,68 @@
+FORMAT: 1A
+
+# sprinkler-switch
+
+This API is for checking and changing status of a sprinkler in a specific house.
+
+## Sprinkler status [/houses/{house_id}/sprinkler]
+Get or change status of a sprinkler
+
++ Parameters
+    + house_id (number) - ID of the House in the form of an integer
+
+
+### Get Sprinkler Status [GET]
+
+`house_id` same integer which was passed in URI. <br>
+`status` values can be `on` or `off` indicating sprinkler state. <br>
+`seconds_left` time after which sprinkler will automatically turn off <br>
+
++ Response 200 (application/json)
+
+        {
+            "house_id": "12",
+            "status": "on",
+            "seconds_left": "45"
+        }
+        
++ Response 200 (application/json)
+
+        {
+            "house_id": "12",
+            "status": "off",
+            "seconds_left": "0"
+        }
+
+### Change Sprinkler Status [POST]
+
+You may switch sprinkler on or off using this action. It takes a JSON
+object containing order and optional argument - number of seconds. If order is "on"
+you can also say for how long sprinkler must be on with optional "seconds" key.
+After posting action, if the order was executed will return code **200** else **403** with reason explaining why.
+
+`set_status` values are `on` or `off` indicating desire to turn sprinkler on or off.<br>
+`seconds` it is an optional argument used only if `set_status` is `on`.  <br>
+value must be positive integer. It indicates for how long sprinkler must stay on <br>
+**default and max value is 60**. <br>
+
++ Request (application/json)
+
+        {
+            "set_status": "on"
+            "seconds": "30"
+        }
+
+
++ Response 200 (application/json)
+
+        {
+            "house_id": "12",
+            "status": "on",
+            "seconds_left": "60"
+        }
+
++ Response 403 (application/json)
+
+        {
+            "reason": "some hardware problem"
+        }

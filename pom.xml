@@ -3,16 +3,16 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>ge.edu.freeuni.sdp.xo</groupId>
-	<artifactId>sprinkler-switch</artifactId>
+	<groupId>ge.edu.freeuni.sdp.iot</groupId>
+	<artifactId>iot-sprinkler-switch</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>sprinkler-switch</name>
+	<name>iot-sprinkler-switch</name>
 
 	<build>
 		<testSourceDirectory>test</testSourceDirectory>
 
-		<finalName>sprinkler-switch</finalName>
+		<finalName>iot-sprinkler-switch</finalName>
 		<plugins>
 
 			<plugin>

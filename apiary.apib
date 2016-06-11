@@ -14,7 +14,7 @@ Returns `200` if service is alive.
 + Response 200 (application/json)
 
 
-## Sprinkler status [/houses/{house_id}/sprinkler]
+## Sprinkler status [/houses/{house_id}]
 Get or change status of a sprinkler
 
 + Parameters
@@ -53,7 +53,7 @@ After posting action, if the order was executed will return code **200** else **
 `set_status` values are `"on"` or `"off"` indicating desire to turn sprinkler on or off.<br>
 `seconds` it is an optional argument used only if `set_status` is `"on"`.  <br>
 value must be positive integer. It indicates for how long sprinkler must stay on <br>
-**default and max value for is `seconds` is 60**. <br>
+**default value for `seconds` is 60**. <br>
 if sprinkler is already on, then it will just change seconds_left to new value. 
 
 + Request (application/json)

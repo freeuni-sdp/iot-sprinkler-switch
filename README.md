@@ -2,7 +2,7 @@
 IoT მოწყობილობაზე შეერთებულია სარწყავი მოწყობილობის ჩამრთველი
 
 
-App - https://github.com/freeuni-sdp/iot-sprinkler-switch
+App - https://iot-sprinkler-switch.herokuapp.com/
 
 API - http://docs.sprinklerswitch.apiary.io/
 

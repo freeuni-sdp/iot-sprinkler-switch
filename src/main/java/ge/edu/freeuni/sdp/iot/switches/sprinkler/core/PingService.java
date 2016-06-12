@@ -1,4 +1,4 @@
-package ge.edu.freeuni.sdp.sprinkler_switch.core;
+package ge.edu.freeuni.sdp.iot.switches.sprinkler.core;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;

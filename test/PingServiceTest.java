@@ -1,7 +1,7 @@
 /**
  * Created by Nika Doghonadze
  */
-import ge.edu.freeuni.sdp.sprinkler_switch.core.PingService;
+import ge.edu.freeuni.sdp.iot.switches.sprinkler.core.PingService;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;

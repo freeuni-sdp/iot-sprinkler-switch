@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>ge.edu.freeuni.sdp.iot</groupId>
+	<groupId>ge.edu.freeuni.sdp.iot.switches</groupId>
 	<artifactId>iot-sprinkler-switch</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>

@@ -23,31 +23,36 @@ Get or change status of a sprinkler
 
 ### Get Sprinkler Status [GET]
 You can get current status of a sprinkler.
-
+`house_id` same string which was passed in URI. <br>
+`status` values can be `"on"` or `"off"` indicating sprinkler state. <br>
 `seconds_left` integer time after which sprinkler will automatically turn off <br>
-
-`200` response code means switch is currently on. <br>
-`204` means switch with `houseId` does not exist. <br>
-`404` means switch is currently turned off. <br>
 
 + Response 200 (application/json)
 
         {
+            "house_id": "1234",
+            "status": "on",
             "seconds_left": 45
         }
         
-+ Response 204 (application/json)
++ Response 200 (application/json)
 
-+ Response 404 (application/json)
+        {
+            "house_id": "1234",
+            "status": "off"
+        }
         
 
-### Turn The Sprinkler On [PUT]
+### Change Sprinkler Status [PUT]
 
-You can switch sprinkler on using this action. It takes an optional JSON
-object containing one argument - `timeout` meaning how long sprinkler will stay on.
-If no JSON object is passed timeout will be set to default time. <br>
-If sprinkler did turn on `200` will be returned.
+You may switch sprinkler on or off using this action. It takes a JSON
+object containing order and optional argument - number of seconds. 
+If order is "on" you can also say for how long sprinkler must be on 
+with optional "timeout" key.
+After posting action, if the order was executed server will return code **200** 
+else http response code explaining error.
 
+`set_status` values are `"on"` or `"off"` indicating desire to turn sprinkler on or off.<br>
 `timeout` it is an optional argument **default value - 60 seconds**<br>
 It must be positive integer. It indicates for how long sprinkler must stay on <br>
 if sprinkler is already on, then it will just change timeout to a new value. 
@@ -55,20 +60,26 @@ if sprinkler is already on, then it will just change timeout to a new value.
 + Request (application/json)
 
         {
+            "set_status": "on",
             "timeout": 30
+        }
+        
++ Request (application/json)
+
+        {
+            "set_status": "on"
+        }
+        
++ Request (application/json)
+
+        {
+            "set_status": "off"
         }
 
 + Response 200 (application/json)
-
-+ Response 204 (application/json)
-
-### Turn The Sprinkler Off [DELETE]
-You can turn the sprinkler off any time using this action. <br>
-`200` - response code means sprinkler was successfully turned off or it was already off. <br>
-`204` means switch with `houseId` was not found.
-
-+ Request (application/json)
-
-+ Response 200 (application/json)
-
-+ Response 204 (application/json)
+  
+        {
+            "house_id": "1234",
+            "status": "on",
+            "seconds_left": 60
+        }

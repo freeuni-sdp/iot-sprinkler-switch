@@ -1,4 +1,4 @@
-package ge.edu.freeuni.sdp.iot.switches.sprinkler.core;
+package ge.edu.freeuni.sdp.iot.switches.sprinkler.services;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -8,8 +8,9 @@ import javax.ws.rs.core.*;
 @Produces( { MediaType.APPLICATION_JSON})
 public class PingService {
 
-  @GET
-  public Response get() {
-    return Response.ok().build();
-  }
+    @GET
+    public Response get() {
+        return Response.ok().build();
+    }
+
 }

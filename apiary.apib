@@ -18,7 +18,7 @@ Returns `200` if service is alive.
 Get or change status of a sprinkler 
 
 + Parameters
-    + house_id (required, string, `1234`) ... unique ID of the House.
+    + house_id (required, string, `d28f9e91-ea20-43cf-abf5-24f3d659afef`) ... unique ID of the House.
 
 
 ### Get Sprinkler Status [GET]
@@ -30,7 +30,7 @@ You can get current status of a sprinkler.
 + Response 200 (application/json)
 
         {
-            "house_id": "1234",
+            "house_id": "d28f9e91-ea20-43cf-abf5-24f3d659afef",
             "status": "on",
             "seconds_left": 45
         }
@@ -38,7 +38,7 @@ You can get current status of a sprinkler.
 + Response 200 (application/json)
 
         {
-            "house_id": "1234",
+            "house_id": "d28f9e91-ea20-43cf-abf5-24f3d659afef",
             "status": "off"
         }
         
@@ -79,7 +79,7 @@ if sprinkler is already on, then it will just change timeout to a new value.
 + Response 200 (application/json)
   
         {
-            "house_id": "1234",
+            "house_id": "d28f9e91-ea20-43cf-abf5-24f3d659afef",
             "status": "on",
             "seconds_left": 60
         }

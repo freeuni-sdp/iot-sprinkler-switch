@@ -7,5 +7,5 @@ import ge.edu.freeuni.sdp.iot.switches.sprinkler.model.SwitchStatus;
  */
 public interface SwitchProvider {
     SwitchStatus findSwitchStatus(String houseId);
-    void updateSwitchStatus(SwitchStatus switchStatus);
+    SwitchStatus updateSwitchStatus(SwitchStatus switchStatus);
 }

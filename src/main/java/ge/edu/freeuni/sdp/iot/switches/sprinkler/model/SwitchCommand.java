@@ -1,10 +1,12 @@
 package ge.edu.freeuni.sdp.iot.switches.sprinkler.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by Nika Doghonadze
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SwitchCommand {
 
     @JsonProperty(value = "set_status", required = true)
@@ -46,5 +48,17 @@ public class SwitchCommand {
             return false;
 
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "{\n" +
+                "    \"set_status\": \""+ getChangeStatusTo() +"\",\n" +
+                "    \"timeout\": "+ getTimeout()+ "\n" +
+                "}";
+    }
+
+    public static SwitchCommand fromStatus(SwitchStatus switchStatus) {
+       return new SwitchCommand(switchStatus.getStatus(), switchStatus.getSecondsLeft());
     }
 }

@@ -24,14 +24,14 @@ public abstract class ShadowProvider implements SwitchProvider {
 
 
     @Override
-    public void updateSwitchStatus(SwitchStatus switchStatus) {
+    public SwitchStatus updateSwitchStatus(SwitchStatus switchStatus) {
         HouseData houseData = houseRegistry.getHouseData(switchStatus.getHouseId());
         if (houseData == null)
-            return;
+            return null;
 
-        sendSwitchCommand(houseData, switchStatus);
+        return sendSwitchCommand(houseData, switchStatus);
     }
 
     protected abstract SwitchStatus readSwitchStatus(HouseData houseData);
-    protected abstract void sendSwitchCommand(HouseData houseData, SwitchStatus switchStatus);
+    protected abstract SwitchStatus sendSwitchCommand(HouseData houseData, SwitchStatus switchStatus);
 }

@@ -52,9 +52,7 @@ public class SwitchService {
             switchStatus.setSecondsLeft(null);
         }
 
-        provider.updateSwitchStatus(switchStatus);
-
-        return provider.findSwitchStatus(houseId);
+        return provider.updateSwitchStatus(switchStatus);
     }
 
 }

@@ -52,13 +52,19 @@ public class SwitchCommand {
 
     @Override
     public String toString() {
-        return "{\n" +
-                "    \"set_status\": \""+ getChangeStatusTo() +"\",\n" +
-                "    \"timeout\": "+ getTimeout()+ "\n" +
+        return "{" +
+                "    \"set_status\": \""+ getChangeStatusTo() +"\"," +
+                "    \"timeout\": "+ getTimeout() +
                 "}";
     }
 
     public static SwitchCommand fromStatus(SwitchStatus switchStatus) {
-       return new SwitchCommand(switchStatus.getStatus(), switchStatus.getSecondsLeft());
+        SwitchCommand res = new SwitchCommand();
+        res.setChangeStatusTo(switchStatus.getStatus());
+
+        if (switchStatus.getSecondsLeft() != null)
+            res.setTimeout(switchStatus.getSecondsLeft());
+
+        return res;
     }
 }

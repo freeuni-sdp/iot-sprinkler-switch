@@ -36,9 +36,9 @@ public class ShadowProviderReal extends ShadowProvider {
     }
 
     @Override
-    protected SwitchStatus sendSwitchCommand(HouseData houseData, SwitchStatus switchStatus) {
+    protected SwitchStatus sendSwitchCommand(HouseData houseData, SwitchCommand switchCommand) {
         String url = getUrl(houseData);
-        SwitchCommand switchCommand = SwitchCommand.fromStatus(switchStatus);
+
         Response response =
                 client.target(url)
                         .request(MediaType.APPLICATION_JSON)

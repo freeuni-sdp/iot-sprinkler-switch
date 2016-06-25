@@ -1,6 +1,7 @@
 package ge.edu.freeuni.sdp.iot.switches.sprinkler.core;
 
 import ge.edu.freeuni.sdp.iot.switches.sprinkler.model.HouseData;
+import ge.edu.freeuni.sdp.iot.switches.sprinkler.model.SwitchCommand;
 import ge.edu.freeuni.sdp.iot.switches.sprinkler.model.SwitchStatus;
 
 /**
@@ -29,9 +30,9 @@ public abstract class ShadowProvider implements SwitchProvider {
         if (houseData == null)
             return null;
 
-        return sendSwitchCommand(houseData, switchStatus);
+        return sendSwitchCommand(houseData, SwitchCommand.fromStatus(switchStatus));
     }
 
     protected abstract SwitchStatus readSwitchStatus(HouseData houseData);
-    protected abstract SwitchStatus sendSwitchCommand(HouseData houseData, SwitchStatus switchStatus);
+    protected abstract SwitchStatus sendSwitchCommand(HouseData houseData, SwitchCommand switchCommand);
 }

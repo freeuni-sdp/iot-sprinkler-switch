@@ -1,6 +1,3 @@
-/**
- * Created by Nika Doghonadze
- */
 import ge.edu.freeuni.sdp.iot.switches.sprinkler.services.PingService;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;

@@ -52,4 +52,53 @@ public class SwitchStatus {
     public void setSecondsLeft(Integer secondsLeft) {
         this.secondsLeft = secondsLeft;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+
+        if (obj == this)
+            return true;
+
+        if (getClass() != obj.getClass())
+            return false;
+
+        SwitchStatus other = (SwitchStatus) obj;
+
+        if (houseId == null) {
+            if (other.houseId != null)
+                return false;
+        } else if (!houseId.equals(other.houseId)) {
+            return false;
+        }
+
+        if (status == null) {
+            if (other.status != null)
+                return false;
+        } else if (!status.equals(other.status)) {
+            return false;
+        }
+
+        if (secondsLeft == null) {
+            if (other.secondsLeft != null && other.secondsLeft != 0) {
+                return false;
+            }
+        } else if (!secondsLeft.equals(other.secondsLeft) && other.secondsLeft != 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((houseId == null) ? 0 : houseId.hashCode());
+        result = prime * result + ((status == null) ? 0 : status.hashCode());
+        result = prime * result + ((secondsLeft == null) ? 0 : secondsLeft.hashCode());
+        return result;
+    }
+
 }

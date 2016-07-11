@@ -4,6 +4,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
 
+import javax.ws.rs.BadRequestException;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Application;
@@ -197,5 +198,18 @@ public class SwitchServiceTest extends JerseyTest {
         SwitchStatus expectedStatus = new SwitchStatus(id, "on", 60);
         assertTrue(FakeSwitchProvider.instance().findSwitchStatus(id).equals(expectedStatus));
         assertTrue(res.equals(expectedStatus));
+    }
+
+    @Test(expected = BadRequestException.class)
+    public void put_status_bad_command() throws Exception {
+        String id = UUID.randomUUID().toString();
+
+        SwitchStatus onStatus = new SwitchStatus(id, "on", 23);
+        FakeSwitchProvider.instance().updateSwitchStatus(onStatus);
+
+        SwitchCommand command = new SwitchCommand("badcommand", 12);
+        target("houses/" + id)
+                .request()
+                .put(Entity.entity(command.toString(), MediaType.APPLICATION_JSON), SwitchStatus.class);
     }
 }
